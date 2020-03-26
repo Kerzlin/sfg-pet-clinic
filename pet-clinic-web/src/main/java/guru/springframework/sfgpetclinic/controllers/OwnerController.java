@@ -1,12 +1,19 @@
 package guru.springframework.sfgpetclinic.controllers;
 
-/**
- * Created by jt on 7/22/18.
- */
-//@RequestMapping("/owners")
-//@Controller
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+
+@RequestMapping("/owners") // zbog foldera owners moze ovde da se stavi da bude zajednicko za sva mapiranja
+@Controller
 public class OwnerController {
-  private static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateOwnerForm";
+
+  @RequestMapping({"", "/", "/index", "/index.html"})
+  public String listVets() {
+    return "owners/index";
+  }
+
+ // private static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateOwnerForm";
 
 //  private final OwnerService ownerService;
 //
