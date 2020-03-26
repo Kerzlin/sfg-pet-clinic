@@ -1,33 +1,23 @@
 package guru.springframework.sfgpetclinic.controllers;
 
-import guru.springframework.sfgpetclinic.services.OwnerService;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-
 /**
  * Created by jt on 7/22/18.
  */
-@RequestMapping("/owners")
-@Controller
+//@RequestMapping("/owners")
+//@Controller
 public class OwnerController {
   private static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateOwnerForm";
 
-  private final OwnerService ownerService;
+//  private final OwnerService ownerService;
+//
+//  public OwnerController(OwnerService ownerService) {
+//    this.ownerService = ownerService;
+//  }
 
-  public OwnerController(OwnerService ownerService) {
-    this.ownerService = ownerService;
-  }
-
-  @InitBinder
-  public void setAllowedFields(WebDataBinder dataBinder) {
-    dataBinder.setDisallowedFields("id");
-  }
+//  @InitBinder
+//  public void setAllowedFields(WebDataBinder dataBinder) {
+//    dataBinder.setDisallowedFields("id");
+//  }
 
 //
 //  @RequestMapping("/find")
@@ -61,12 +51,12 @@ public class OwnerController {
 //    }
 //  }
 
-  @GetMapping("/{ownerId}")
-  public ModelAndView showOwner(@PathVariable Long ownerId) {
-    ModelAndView mav = new ModelAndView("owners/ownerDetails");
-    mav.addObject(ownerService.findById(ownerId));
-    return mav;
-  }
+//  @GetMapping("/{ownerId}")
+//  public ModelAndView showOwner(@PathVariable Long ownerId) {
+//    ModelAndView mav = new ModelAndView("owners/ownerDetails");
+//    mav.addObject(ownerService.findById(ownerId));
+//    return mav;
+//  }
 
 //  @GetMapping("/new")
 //  public String initCreationForm(Model model) {
@@ -84,11 +74,11 @@ public class OwnerController {
 //    }
 //  }
 
-  @GetMapping("/{ownerId}/edit")
-  public String initUpdateOwnerForm(@PathVariable Long ownerId, Model model) {
-    model.addAttribute(ownerService.findById(ownerId));
-    return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
-  }
+//  @GetMapping("/{ownerId}/edit")
+//  public String initUpdateOwnerForm(@PathVariable Long ownerId, Model model) {
+//    model.addAttribute(ownerService.findById(ownerId));
+//    return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
+//  }
 
 //  @PostMapping("/{ownerId}/edit")
 //  public String processUpdateOwnerForm(@Valid Owner owner, BindingResult result, @PathVariable Long ownerId) {
