@@ -1,5 +1,7 @@
 package guru.springframework.sfgpetclinic.model;
 
+import java.util.Set;
+
 //@Setter
 //@Getter
 //@NoArgsConstructor
@@ -31,10 +33,17 @@ public class Owner extends Person {
 //  private String telephone;
 //
 //  @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
-//  private Set<Pet> pets = new HashSet<>();
+  private Set<Pet> pets;
 
+  public Set<Pet> getPets() {
+    return pets;
+  }
 
-  /**
+  public void setPets(Set<Pet> pets) {
+    this.pets = pets;
+  }
+
+/**
    * Return the Pet with the given name, or null if none found for this Owner.
    *
    * @param name to test
