@@ -1,5 +1,7 @@
 package guru.springframework.sfgpetclinic.model;
 
+import java.util.Set;
+
 /**
  * Created by jt on 7/13/18.
  */
@@ -12,7 +14,16 @@ package guru.springframework.sfgpetclinic.model;
 //@Table(name = "vets")
 public class Vet extends Person {
 
-//  @ManyToMany(fetch = FetchType.EAGER)
+  private Set<Speciality> specialities;
+
+  public Set<Speciality> getSpecialities() {
+    return specialities;
+  }
+
+  public void setSpecialities(Set<Speciality> specialities) {
+    this.specialities = specialities;
+  }
+  //  @ManyToMany(fetch = FetchType.EAGER)
 //  @JoinTable(name = "vet_specialties", joinColumns = @JoinColumn(name = "vet_id"),
 //      inverseJoinColumns = @JoinColumn(name = "speciality_id"))
 //  private Set<Speciality> specialities = new HashSet<>();
