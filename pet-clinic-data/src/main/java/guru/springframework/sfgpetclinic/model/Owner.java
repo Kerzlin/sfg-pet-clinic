@@ -1,5 +1,6 @@
 package guru.springframework.sfgpetclinic.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 //@Setter
@@ -33,7 +34,7 @@ public class Owner extends Person {
   private String telephone;
 //
 //  @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
-  private Set<Pet> pets;
+  private Set<Pet> pets = new HashSet<>();
 
   public String getAddress() {
     return address;
