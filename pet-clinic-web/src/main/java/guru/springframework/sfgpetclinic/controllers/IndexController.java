@@ -10,4 +10,9 @@ public class IndexController {
   public String index() {
     return "index"; // trazi template index.html
   }
+
+  @RequestMapping({"/oups"})
+  public String oups() {
+    return "notImplemented";
+  }
 }
