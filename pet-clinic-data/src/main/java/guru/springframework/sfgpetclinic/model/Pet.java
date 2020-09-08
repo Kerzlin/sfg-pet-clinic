@@ -1,5 +1,6 @@
 package guru.springframework.sfgpetclinic.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
 /**
@@ -9,8 +10,8 @@ import java.time.LocalDate;
 //@Getter
 //@NoArgsConstructor
 //@AllArgsConstructor
-//@Entity
-//@Table(name = "pets")
+@Entity
+@Table(name = "pets")
 public class Pet extends BaseEntity {
 
   //@Builder
@@ -26,18 +27,18 @@ public class Pet extends BaseEntity {
 //    }
 //  }
 
-//  @Column(name = "name")
+  @Column(name = "name")
   private String name;
-//
-//  @ManyToOne
-//  @JoinColumn(name = "type_id")
+
+  @ManyToOne
+  @JoinColumn(name = "type_id")
   private PetType petType;
-//
-//  @ManyToOne
-//  @JoinColumn(name = "owner_id")
+
+  @ManyToOne
+  @JoinColumn(name = "owner_id")
   private Owner owner;
-//
-//  @Column(name = "birth_date")
+
+  @Column(name = "birth_date")
 //  @DateTimeFormat(pattern = "yyyy-MM-dd")
   private LocalDate birthDate;
 //

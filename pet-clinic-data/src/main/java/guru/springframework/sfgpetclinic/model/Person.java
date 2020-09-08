@@ -1,8 +1,12 @@
 package guru.springframework.sfgpetclinic.model;
 
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.NotEmpty;
+
 //@AllArgsConstructor
 //@NoArgsConstructor
-//@MappedSuperclass
+@MappedSuperclass
 public class Person extends BaseEntity {
 
 //  public Person(Long id, String firstName, String lastName) {
@@ -11,10 +15,12 @@ public class Person extends BaseEntity {
 //    this.lastName = lastName;
 //  }
 
- // @Column(name = "first_name")
+  @Column(name = "first_name")
+  @NotEmpty
   private String firstName;
 
-// @Column(name = "last_name")
+ @Column(name = "last_name")
+ @NotEmpty
   private String lastName;
 
   public String getFirstName() {

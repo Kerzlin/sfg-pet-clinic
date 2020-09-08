@@ -1,5 +1,9 @@
 package guru.springframework.sfgpetclinic.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  * Created by jt on 7/13/18.
  */
@@ -8,8 +12,8 @@ package guru.springframework.sfgpetclinic.model;
 //@Getter
 //@NoArgsConstructor
 //@AllArgsConstructor
-//@Entity
-//@Table(name = "types")
+@Entity
+@Table(name = "types")
 public class PetType extends BaseEntity {
 
 //  @Builder
@@ -18,7 +22,7 @@ public class PetType extends BaseEntity {
 //    this.name = name;
 //  }
 //
-//  @Column(name = "name")
+  @Column(name = "name")
   private String name;
 
   public String getName() {
