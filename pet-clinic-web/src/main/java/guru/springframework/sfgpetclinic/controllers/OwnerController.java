@@ -1,9 +1,13 @@
 package guru.springframework.sfgpetclinic.controllers;
 
+import guru.springframework.sfgpetclinic.model.Owner;
 import guru.springframework.sfgpetclinic.services.OwnerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 
 @RequestMapping("/owners") // zbog foldera owners moze ovde da se stavi da bude zajednicko za sva mapiranja
@@ -23,8 +27,9 @@ public class OwnerController {
   }
 
   @RequestMapping({"/find"})
-  public String findOwners() {
-    return "notImplemented";
+  public String findOwners(Model model) {
+    model.addAttribute("owner", Owner.builder().build());
+    return "owners/findOwners";
   }
  // private static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateOwnerForm";
 
@@ -71,12 +76,12 @@ public class OwnerController {
 //    }
 //  }
 
-//  @GetMapping("/{ownerId}")
-//  public ModelAndView showOwner(@PathVariable Long ownerId) {
-//    ModelAndView mav = new ModelAndView("owners/ownerDetails");
-//    mav.addObject(ownerService.findById(ownerId));
-//    return mav;
-//  }
+  @GetMapping("/{ownerId}")
+  public ModelAndView showOwner(@PathVariable Long ownerId) {
+    ModelAndView mav = new ModelAndView("owners/ownerDetails");
+    mav.addObject(ownerService.findById(ownerId));
+    return mav;
+  }
 
 //  @GetMapping("/new")
 //  public String initCreationForm(Model model) {
