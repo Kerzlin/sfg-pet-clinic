@@ -31,13 +31,16 @@ public class OwnerController {
     model.addAttribute("owner", Owner.builder().build());
     return "owners/findOwners";
   }
- // private static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateOwnerForm";
 
-//  private final OwnerService ownerService;
-//
-//  public OwnerController(OwnerService ownerService) {
-//    this.ownerService = ownerService;
-//  }
+  @GetMapping("/{ownerId}")
+  public ModelAndView showOwner(@PathVariable Long ownerId) {
+    ModelAndView mav = new ModelAndView("owners/ownerDetails");
+    mav.addObject(ownerService.findById(ownerId));
+    return mav;
+  }
+
+  // private static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateOwnerForm";
+
 
 //  @InitBinder
 //  public void setAllowedFields(WebDataBinder dataBinder) {
@@ -76,12 +79,6 @@ public class OwnerController {
 //    }
 //  }
 
-  @GetMapping("/{ownerId}")
-  public ModelAndView showOwner(@PathVariable Long ownerId) {
-    ModelAndView mav = new ModelAndView("owners/ownerDetails");
-    mav.addObject(ownerService.findById(ownerId));
-    return mav;
-  }
 
 //  @GetMapping("/new")
 //  public String initCreationForm(Model model) {
