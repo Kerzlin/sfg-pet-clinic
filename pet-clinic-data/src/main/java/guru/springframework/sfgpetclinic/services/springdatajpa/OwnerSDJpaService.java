@@ -38,7 +38,7 @@ public class OwnerSDJpaService implements OwnerService {
     @Override
     public Set<Owner> findAll() {
         Set<Owner> owners = new HashSet<>();
-        ownerRepository.findAll().forEach(owners::add); // pogledati
+        ownerRepository.findAll().forEach(owners::add); // pogledati - owner.add -lista
         return owners;
     }
     @Override
